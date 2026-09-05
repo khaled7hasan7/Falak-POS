@@ -1,0 +1,8 @@
+{
+  "$comment": "مصطلحات السوبرماركت — جدول docs/01-project-and-permissions.md §4. تُدمج فوق ar.json.",
+  "term.item": "صنف",
+  "term.items": "الأصناف",
+  "term.baseUnit": "حبة",
+  "term.largeUnit": "كرتونة",
+  "term.inventoryScreen": "المخزون"
+}

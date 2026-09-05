@@ -1,0 +1,8 @@
+{
+  "$comment": "مصطلحات الصيدلية — docs/01 §4. تُملأ مع وحدة الصيدلية في M4 (المهمة 4.7).",
+  "term.item": "دواء",
+  "term.items": "الأدوية",
+  "term.baseUnit": "حبة",
+  "term.largeUnit": "علبة",
+  "term.inventoryScreen": "المستودع"
+}

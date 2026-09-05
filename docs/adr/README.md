@@ -9,3 +9,4 @@
 | [001](ADR-001-architecture.md) | المعمارية الأساسية | معتمد |
 | [002](ADR-002-money-decimal.md) | الأموال بـ decimal لا float | معتمد |
 | [003](ADR-003-updated-at-for-synced-entities.md) | `updated_at` إلزامي لكل كيان يُزامَن | معتمد |
+| [004](ADR-004-cash-rounding.md) | التقريب النقدي ومفتاح `pos.cash_rounding` | معتمد |

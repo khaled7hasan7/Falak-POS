@@ -281,6 +281,7 @@ GROUP BY 1 ORDER BY 1;
 | `pos.lock_after_minutes` | number / 10 | قفل شاشة الكاشير تلقائياً |
 | `pos.quick_grid` | object / {cols:6, rows:3} | أبعاد شبكة الأزرار السريعة |
 | `pos.show_customer_screen` | bool / false | تفعيل شاشة الزبون |
+| `pos.cash_rounding` | object / `{enabled:false, increment:"0.10", mode:"nearest"}` | تقريب الإجمالي **النقدي** لأقرب وحدة متداولة (10 أغورات، نصف شيكل). `mode`: `nearest`/`up`/`down`. معطّل افتراضياً، ولا يمسّ وعاء الضريبة. التفصيل في ADR-004 |
 | `credit.default_limit` | number / 0 | الحد الائتماني الافتراضي لعميل جديد |
 | `expiry.warn_days` | number[] / [90,180] | تنبيهات قرب الانتهاء |
 | `backup.cloud_enabled` | يُشتق من وحدة `cloud_backup` في الترخيص، لا يُخزَّن هنا | النسخ السحابي خدمة مدفوعة (الملف 06 §10) |
