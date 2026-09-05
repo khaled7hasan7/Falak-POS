@@ -8,3 +8,4 @@
 |---|---|---|
 | [001](ADR-001-architecture.md) | المعمارية الأساسية | معتمد |
 | [002](ADR-002-money-decimal.md) | الأموال بـ decimal لا float | معتمد |
+| [003](ADR-003-updated-at-for-synced-entities.md) | `updated_at` إلزامي لكل كيان يُزامَن | معتمد |

@@ -18,6 +18,25 @@ export default tseslint.config(
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {
+    // سكربتات Node عادية (.mjs/.js) — typescript-eslint يعطّل no-undef لملفات TS
+    // لأن المصرّف يتكفّل بها، أما هذه فتحتاج تعريف عوالم Node صراحةً.
+    files: ['**/*.mjs', '**/*.js'],
+    languageOptions: {
+      globals: {
+        process: 'readonly',
+        console: 'readonly',
+        fetch: 'readonly',
+        Buffer: 'readonly',
+        URL: 'readonly',
+        TextDecoder: 'readonly',
+        TextEncoder: 'readonly',
+        setTimeout: 'readonly',
+        clearTimeout: 'readonly',
+        __dirname: 'readonly',
+      },
+    },
+  },
+  {
     rules: {
       '@typescript-eslint/no-unused-vars': [
         'error',

@@ -220,6 +220,8 @@ GROUP BY 1 ORDER BY 1;
 ## 8. الترحيلات (Migrations)
 
 - الأداة: **Drizzle Kit** مع ملفات SQL مرقّمة `0001_init.sql` … في `packages/db/migrations`.
+- **الترحيلات المطبَّقة حتى الآن:** `0001_init.sql` (نسخة حرفية من `falak_pos_schema.sql`) · `0002_updated_at.sql` (يضيف `updated_at` + تريجر `set_updated_at` إلى `product_barcodes`, `shifts`, `stocktakes`, `insurance_companies`, `breakdown_runs`, `expense_categories` — بدونه لا تُزامَن هذه الجداول لأن قاعدة الـ upsert في الملف 06 §7 تقارن `updated_at`؛ التفصيل في ADR-003).
+- سكربت `pnpm db:migrate` يطبّق الملفات الناقصة فقط بالترتيب الأبجدي، كل ملف داخل معاملة واحدة، ويسجّل اسمه في `schema_migrations`.
 - كل إصدار للبرنامج يحمل `min_db_version`؛ الوكيل عند التحديث الذاتي ينفّذ الترحيلات الناقصة **قبل** تشغيل الإصدار الجديد، داخل معاملة، وبنسخة احتياطية تلقائية (`pg_dump`) قبلها.
 - ممنوع في الترحيلات: حذف عمود أو جدول في نفس الإصدار الذي توقف عن استخدامه (يُحذف بعد إصدارين)، تغيير نوع عمود مالي، أي `ALTER` يقفل جدول `sales` أكثر من ثوانٍ.
 - السحابة تُرحَّل أولاً وتبقى متوافقة مع إصدارين سابقين من العملاء.
@@ -593,6 +595,7 @@ GROUP BY 1 ORDER BY 1;
 | `barcode` | text | – | UQ |  |
 | `is_primary` | boolean | – | false |  |
 | `created_at` | timestamptz | – | now() |  |
+| `updated_at` | timestamptz | – | now() | أُضيف بالترحيل 0002 (ADR-003) |
 | `deleted_at` | timestamptz | ✓ |  |  |
 
 #### `price_lists`
@@ -791,6 +794,7 @@ GROUP BY 1 ORDER BY 1;
 | `started_at` | timestamptz | – | now() |  |
 | `approved_at` | timestamptz | ✓ |  |  |
 | `note` | text | ✓ |  |  |
+| `updated_at` | timestamptz | – | now() | أُضيف بالترحيل 0002 (ADR-003) |
 
 #### `stocktake_lines`
 
@@ -824,6 +828,7 @@ GROUP BY 1 ORDER BY 1;
 | `waste_qty` | numeric(14,3) | – | 0 |  |
 | `user_id` | uuid | ✓ | FK → users |  |
 | `created_at` | timestamptz | – | now() |  |
+| `updated_at` | timestamptz | – | now() | أُضيف بالترحيل 0002 (ADR-003) |
 
 #### `breakdown_run_lines`
 
@@ -933,6 +938,7 @@ GROUP BY 1 ORDER BY 1;
 | `counted_cash` | jsonb | ✓ |  | ما عدّه الكاشير |
 | `difference` | jsonb | ✓ |  | العجز/الزيادة لكل عملة |
 | `note` | text | ✓ |  |  |
+| `updated_at` | timestamptz | – | now() | أُضيف بالترحيل 0002 (ADR-003) |
 
 #### `cash_movements`
 
@@ -963,6 +969,7 @@ GROUP BY 1 ORDER BY 1;
 | `id` | uuid | – | PK · uuid() |  |
 | `tenant_id` | uuid | – | FK → tenants |  |
 | `name` | text | – |  | كهرباء، إيجار، رواتب، نثرية |
+| `updated_at` | timestamptz | – | now() | أُضيف بالترحيل 0002 (ADR-003) |
 | `deleted_at` | timestamptz | ✓ |  |  |
 
 #### `expenses`
@@ -1112,6 +1119,7 @@ GROUP BY 1 ORDER BY 1;
 | `contact` | text | ✓ |  |  |
 | `is_active` | boolean | – | true |  |
 | `created_at` | timestamptz | – | now() |  |
+| `updated_at` | timestamptz | – | now() | أُضيف بالترحيل 0002 (ADR-003) |
 | `deleted_at` | timestamptz | ✓ |  |  |
 
 #### `prescriptions`

@@ -1,3 +1,7 @@
 packages:
   - 'apps/*'
   - 'packages/*'
+
+# esbuild يحتاج تشغيل سكربت التثبيت لتنزيل ثنائيّته (يلزم vite وvitest وtsx)
+onlyBuiltDependencies:
+  - esbuild

@@ -1,0 +1,1522 @@
+{
+  "$comment": "بيانات الأساس لبذرة «سوبرماركت الفلك». التوسيع الحتمي فوقها في src/seed/catalog.ts ببذرة ثابتة، فتخرج نفس الـ 500 صنف في كل تشغيل. الأسعار بالشيكل.",
+  "units": [
+    { "key": "piece", "nameAr": "حبة", "nameEn": "Piece", "symbol": "حبة", "allowFraction": false },
+    {
+      "key": "carton",
+      "nameAr": "كرتونة",
+      "nameEn": "Carton",
+      "symbol": "كرتونة",
+      "allowFraction": false
+    },
+    { "key": "kg", "nameAr": "كيلو", "nameEn": "Kilogram", "symbol": "كغ", "allowFraction": true },
+    { "key": "box", "nameAr": "علبة", "nameEn": "Box", "symbol": "علبة", "allowFraction": false },
+    {
+      "key": "strip",
+      "nameAr": "شريط",
+      "nameEn": "Strip",
+      "symbol": "شريط",
+      "allowFraction": false
+    },
+    { "key": "liter", "nameAr": "لتر", "nameEn": "Liter", "symbol": "ل", "allowFraction": true }
+  ],
+  "categories": [
+    {
+      "key": "dairy",
+      "nameAr": "ألبان وأجبان",
+      "nameEn": "Dairy & Cheese",
+      "families": [
+        {
+          "base": "حليب طازج",
+          "brands": ["الجنيدي", "طنوس", "الصفا"],
+          "sizes": ["1 لتر", "500 مل", "200 مل"],
+          "unit": "piece",
+          "priceMin": 2.5,
+          "priceMax": 8.0,
+          "trackExpiry": true
+        },
+        {
+          "base": "لبن رائب",
+          "brands": ["الجنيدي", "طنوس"],
+          "sizes": ["1 كغ", "500 غم"],
+          "unit": "piece",
+          "priceMin": 5.0,
+          "priceMax": 12.0,
+          "trackExpiry": true
+        },
+        {
+          "base": "جبنة بيضاء",
+          "brands": ["الجنيدي", "نابلسية", "الصفا"],
+          "sizes": ["400 غم", "800 غم"],
+          "unit": "piece",
+          "priceMin": 12.0,
+          "priceMax": 28.0,
+          "trackExpiry": true
+        },
+        {
+          "base": "لبنة",
+          "brands": ["الجنيدي", "طنوس"],
+          "sizes": ["400 غم", "900 غم"],
+          "unit": "piece",
+          "priceMin": 9.0,
+          "priceMax": 22.0,
+          "trackExpiry": true
+        },
+        {
+          "base": "جبنة صفراء شرائح",
+          "brands": ["بوك", "الجنيدي"],
+          "sizes": ["200 غم", "400 غم"],
+          "unit": "piece",
+          "priceMin": 10.0,
+          "priceMax": 24.0,
+          "trackExpiry": true
+        },
+        {
+          "base": "قشطة",
+          "brands": ["نستله", "بوك"],
+          "sizes": ["170 غم", "250 غم"],
+          "unit": "piece",
+          "priceMin": 6.0,
+          "priceMax": 14.0,
+          "trackExpiry": true
+        }
+      ]
+    },
+    {
+      "key": "bakery",
+      "nameAr": "مخبوزات",
+      "nameEn": "Bakery",
+      "families": [
+        {
+          "base": "خبز عربي",
+          "brands": ["مخبز الفلك", "الشامي"],
+          "sizes": ["كيس كبير", "كيس صغير"],
+          "unit": "piece",
+          "priceMin": 3.0,
+          "priceMax": 7.0,
+          "trackExpiry": true
+        },
+        {
+          "base": "خبز توست",
+          "brands": ["الشامي", "بيتزا هت"],
+          "sizes": ["600 غم", "350 غم"],
+          "unit": "piece",
+          "priceMin": 5.0,
+          "priceMax": 11.0,
+          "trackExpiry": true
+        },
+        {
+          "base": "كعك بسمسم",
+          "brands": ["مخبز الفلك", "القدس"],
+          "sizes": ["حبة", "علبة 6"],
+          "unit": "piece",
+          "priceMin": 2.0,
+          "priceMax": 12.0,
+          "trackExpiry": true
+        },
+        {
+          "base": "معجنات زعتر",
+          "brands": ["مخبز الفلك"],
+          "sizes": ["حبة", "علبة 4", "علبة 8"],
+          "unit": "piece",
+          "priceMin": 2.5,
+          "priceMax": 18.0,
+          "trackExpiry": true
+        },
+        {
+          "base": "بقسماط",
+          "brands": ["الشامي", "مخبز الفلك"],
+          "sizes": ["250 غم", "500 غم"],
+          "unit": "piece",
+          "priceMin": 4.0,
+          "priceMax": 9.0
+        }
+      ]
+    },
+    {
+      "key": "meat",
+      "nameAr": "لحوم ودواجن",
+      "nameEn": "Meat & Poultry",
+      "families": [
+        {
+          "base": "لحم عجل مفروم",
+          "brands": ["ملحمة الفلك"],
+          "sizes": [""],
+          "unit": "kg",
+          "priceMin": 55.0,
+          "priceMax": 75.0,
+          "weighed": true,
+          "trackExpiry": true
+        },
+        {
+          "base": "ستيك عجل",
+          "brands": ["ملحمة الفلك"],
+          "sizes": [""],
+          "unit": "kg",
+          "priceMin": 70.0,
+          "priceMax": 95.0,
+          "weighed": true,
+          "trackExpiry": true
+        },
+        {
+          "base": "لحم غنم",
+          "brands": ["ملحمة الفلك", "بلدي"],
+          "sizes": [""],
+          "unit": "kg",
+          "priceMin": 80.0,
+          "priceMax": 110.0,
+          "weighed": true,
+          "trackExpiry": true
+        },
+        {
+          "base": "صدور دجاج",
+          "brands": ["الجنيدي", "سنيورة"],
+          "sizes": [""],
+          "unit": "kg",
+          "priceMin": 28.0,
+          "priceMax": 42.0,
+          "weighed": true,
+          "trackExpiry": true
+        },
+        {
+          "base": "دجاج كامل",
+          "brands": ["الجنيدي", "سنيورة"],
+          "sizes": [""],
+          "unit": "kg",
+          "priceMin": 18.0,
+          "priceMax": 26.0,
+          "weighed": true,
+          "trackExpiry": true
+        },
+        {
+          "base": "مرتديلا دجاج",
+          "brands": ["سنيورة", "دياب"],
+          "sizes": ["250 غم", "500 غم"],
+          "unit": "piece",
+          "priceMin": 9.0,
+          "priceMax": 20.0,
+          "trackExpiry": true
+        }
+      ]
+    },
+    {
+      "key": "produce",
+      "nameAr": "خضار وفواكه",
+      "nameEn": "Fruits & Vegetables",
+      "families": [
+        {
+          "base": "بندورة",
+          "brands": ["بلدي", "دفيئة"],
+          "sizes": [""],
+          "unit": "kg",
+          "priceMin": 2.5,
+          "priceMax": 8.0,
+          "weighed": true
+        },
+        {
+          "base": "خيار",
+          "brands": ["بلدي", "دفيئة"],
+          "sizes": [""],
+          "unit": "kg",
+          "priceMin": 3.0,
+          "priceMax": 9.0,
+          "weighed": true
+        },
+        {
+          "base": "بطاطا",
+          "brands": ["بلدي", "مستوردة"],
+          "sizes": [""],
+          "unit": "kg",
+          "priceMin": 2.0,
+          "priceMax": 6.0,
+          "weighed": true
+        },
+        {
+          "base": "بصل",
+          "brands": ["بلدي", "مستورد"],
+          "sizes": [""],
+          "unit": "kg",
+          "priceMin": 2.5,
+          "priceMax": 7.0,
+          "weighed": true
+        },
+        {
+          "base": "تفاح",
+          "brands": ["بلدي", "مستورد"],
+          "sizes": [""],
+          "unit": "kg",
+          "priceMin": 6.0,
+          "priceMax": 15.0,
+          "weighed": true
+        },
+        {
+          "base": "موز",
+          "brands": ["مستورد"],
+          "sizes": [""],
+          "unit": "kg",
+          "priceMin": 7.0,
+          "priceMax": 14.0,
+          "weighed": true
+        },
+        {
+          "base": "برتقال",
+          "brands": ["بلدي", "يافاوي"],
+          "sizes": [""],
+          "unit": "kg",
+          "priceMin": 4.0,
+          "priceMax": 10.0,
+          "weighed": true
+        },
+        {
+          "base": "ليمون",
+          "brands": ["بلدي"],
+          "sizes": [""],
+          "unit": "kg",
+          "priceMin": 5.0,
+          "priceMax": 12.0,
+          "weighed": true
+        }
+      ]
+    },
+    {
+      "key": "canned",
+      "nameAr": "معلبات",
+      "nameEn": "Canned Goods",
+      "families": [
+        {
+          "base": "تونة",
+          "brands": ["الأمير", "صن شاين", "ريو ماري"],
+          "sizes": ["160 غم", "185 غم"],
+          "unit": "piece",
+          "priceMin": 6.0,
+          "priceMax": 16.0,
+          "trackExpiry": true
+        },
+        {
+          "base": "ذرة حلوة",
+          "brands": ["الأمير", "جولدن"],
+          "sizes": ["340 غم", "180 غم"],
+          "unit": "piece",
+          "priceMin": 4.0,
+          "priceMax": 10.0,
+          "trackExpiry": true
+        },
+        {
+          "base": "فول مدمس",
+          "brands": ["الأمير", "أميرة"],
+          "sizes": ["400 غم", "800 غم"],
+          "unit": "piece",
+          "priceMin": 3.5,
+          "priceMax": 9.0,
+          "trackExpiry": true
+        },
+        {
+          "base": "حمص معلب",
+          "brands": ["الأمير", "أميرة"],
+          "sizes": ["400 غم", "800 غم"],
+          "unit": "piece",
+          "priceMin": 3.5,
+          "priceMax": 9.0,
+          "trackExpiry": true
+        },
+        {
+          "base": "معجون بندورة",
+          "brands": ["الأمير", "الفلاح"],
+          "sizes": ["135 غم", "400 غم", "800 غم"],
+          "unit": "piece",
+          "priceMin": 2.5,
+          "priceMax": 11.0,
+          "trackExpiry": true
+        }
+      ]
+    },
+    {
+      "key": "juices",
+      "nameAr": "عصائر ومشروبات",
+      "nameEn": "Juices & Drinks",
+      "families": [
+        {
+          "base": "عصير برتقال",
+          "brands": ["سيني", "تروبيكانا", "الجنيدي"],
+          "sizes": ["1 لتر", "250 مل"],
+          "unit": "piece",
+          "priceMin": 3.0,
+          "priceMax": 12.0,
+          "trackExpiry": true
+        },
+        {
+          "base": "عصير تفاح",
+          "brands": ["سيني", "تروبيكانا"],
+          "sizes": ["1 لتر", "250 مل"],
+          "unit": "piece",
+          "priceMin": 3.0,
+          "priceMax": 12.0,
+          "trackExpiry": true
+        },
+        {
+          "base": "عصير مانجا",
+          "brands": ["سيني", "بيرين"],
+          "sizes": ["1 لتر", "250 مل"],
+          "unit": "piece",
+          "priceMin": 3.5,
+          "priceMax": 13.0,
+          "trackExpiry": true
+        },
+        {
+          "base": "شراب مركّز ليمون",
+          "brands": ["بيرين", "فيمتو"],
+          "sizes": ["750 مل", "1.5 لتر"],
+          "unit": "piece",
+          "priceMin": 8.0,
+          "priceMax": 22.0
+        },
+        {
+          "base": "مشروب طاقة",
+          "brands": ["إكس إل", "ريد بول"],
+          "sizes": ["250 مل"],
+          "unit": "piece",
+          "priceMin": 5.0,
+          "priceMax": 12.0,
+          "trackExpiry": true
+        }
+      ]
+    },
+    {
+      "key": "cleaning",
+      "nameAr": "منظفات",
+      "nameEn": "Cleaning",
+      "families": [
+        {
+          "base": "سائل جلي",
+          "brands": ["فيري", "برسيل", "الفلك"],
+          "sizes": ["750 مل", "1.5 لتر"],
+          "unit": "piece",
+          "priceMin": 7.0,
+          "priceMax": 22.0
+        },
+        {
+          "base": "مسحوق غسيل",
+          "brands": ["أريال", "برسيل", "تايد"],
+          "sizes": ["1.5 كغ", "3 كغ"],
+          "unit": "piece",
+          "priceMin": 18.0,
+          "priceMax": 55.0
+        },
+        {
+          "base": "منظف أرضيات",
+          "brands": ["فلاش", "ديتول"],
+          "sizes": ["1 لتر", "2 لتر"],
+          "unit": "piece",
+          "priceMin": 8.0,
+          "priceMax": 24.0
+        },
+        {
+          "base": "كلوركس",
+          "brands": ["كلوركس", "الفلك"],
+          "sizes": ["1 لتر", "4 لتر"],
+          "unit": "piece",
+          "priceMin": 5.0,
+          "priceMax": 20.0
+        },
+        {
+          "base": "منظف زجاج",
+          "brands": ["ويندكس", "أجاكس"],
+          "sizes": ["500 مل", "750 مل"],
+          "unit": "piece",
+          "priceMin": 6.0,
+          "priceMax": 15.0
+        }
+      ]
+    },
+    {
+      "key": "personal_care",
+      "nameAr": "عناية شخصية",
+      "nameEn": "Personal Care",
+      "families": [
+        {
+          "base": "شامبو",
+          "brands": ["هيد أند شولدرز", "بانتين", "دوف"],
+          "sizes": ["400 مل", "700 مل"],
+          "unit": "piece",
+          "priceMin": 14.0,
+          "priceMax": 45.0
+        },
+        {
+          "base": "صابون استحمام",
+          "brands": ["لوكس", "دوف", "بالمولايف"],
+          "sizes": ["125 غم", "عبوة 4"],
+          "unit": "piece",
+          "priceMin": 4.0,
+          "priceMax": 22.0
+        },
+        {
+          "base": "معجون أسنان",
+          "brands": ["سيجنال", "كولجيت", "سنسوداين"],
+          "sizes": ["75 مل", "125 مل"],
+          "unit": "piece",
+          "priceMin": 8.0,
+          "priceMax": 28.0,
+          "trackExpiry": true
+        },
+        {
+          "base": "مزيل عرق",
+          "brands": ["ريكسونا", "نيفيا"],
+          "sizes": ["50 مل", "150 مل"],
+          "unit": "piece",
+          "priceMin": 10.0,
+          "priceMax": 26.0
+        },
+        {
+          "base": "كريم مرطب",
+          "brands": ["نيفيا", "جونسون"],
+          "sizes": ["100 مل", "250 مل"],
+          "unit": "piece",
+          "priceMin": 12.0,
+          "priceMax": 32.0
+        }
+      ]
+    },
+    {
+      "key": "sweets",
+      "nameAr": "حلويات وشوكولاتة",
+      "nameEn": "Sweets & Chocolate",
+      "families": [
+        {
+          "base": "شوكولاتة حليب",
+          "brands": ["جالكسي", "كادبوري", "الفلك"],
+          "sizes": ["40 غم", "90 غم"],
+          "unit": "piece",
+          "priceMin": 3.0,
+          "priceMax": 14.0,
+          "trackExpiry": true
+        },
+        {
+          "base": "بسكويت محشو",
+          "brands": ["أوريو", "لواكر", "تيامو"],
+          "sizes": ["100 غم", "300 غم"],
+          "unit": "piece",
+          "priceMin": 3.5,
+          "priceMax": 16.0,
+          "trackExpiry": true
+        },
+        {
+          "base": "ويفر",
+          "brands": ["لواكر", "تيامو"],
+          "sizes": ["45 غم", "150 غم"],
+          "unit": "piece",
+          "priceMin": 2.0,
+          "priceMax": 12.0,
+          "trackExpiry": true
+        },
+        {
+          "base": "حلاوة طحينية",
+          "brands": ["الأمير", "الجنيدي"],
+          "sizes": ["400 غم", "800 غم"],
+          "unit": "piece",
+          "priceMin": 12.0,
+          "priceMax": 30.0
+        },
+        {
+          "base": "علكة",
+          "brands": ["تريدنت", "أوربت"],
+          "sizes": ["شريط", "علبة"],
+          "unit": "strip",
+          "priceMin": 1.5,
+          "priceMax": 9.0
+        }
+      ]
+    },
+    {
+      "key": "legumes",
+      "nameAr": "بقوليات",
+      "nameEn": "Legumes",
+      "families": [
+        {
+          "base": "عدس أحمر",
+          "brands": ["الأمير", "سائب"],
+          "sizes": ["1 كغ", "500 غم"],
+          "unit": "piece",
+          "priceMin": 7.0,
+          "priceMax": 18.0
+        },
+        {
+          "base": "حمص حب",
+          "brands": ["الأمير", "سائب"],
+          "sizes": ["1 كغ", "500 غم"],
+          "unit": "piece",
+          "priceMin": 8.0,
+          "priceMax": 20.0
+        },
+        {
+          "base": "فاصولياء بيضاء",
+          "brands": ["الأمير", "سائب"],
+          "sizes": ["1 كغ", "500 غم"],
+          "unit": "piece",
+          "priceMin": 9.0,
+          "priceMax": 22.0
+        },
+        {
+          "base": "فول جاف",
+          "brands": ["الأمير"],
+          "sizes": ["1 كغ", "500 غم"],
+          "unit": "piece",
+          "priceMin": 7.0,
+          "priceMax": 16.0
+        },
+        {
+          "base": "برغل خشن",
+          "brands": ["الأمير", "بلدي"],
+          "sizes": ["1 كغ", "500 غم"],
+          "unit": "piece",
+          "priceMin": 6.0,
+          "priceMax": 15.0
+        }
+      ]
+    },
+    {
+      "key": "oils",
+      "nameAr": "زيوت وسمن",
+      "nameEn": "Oils & Ghee",
+      "families": [
+        {
+          "base": "زيت زيتون بلدي",
+          "brands": ["عصارة الفلك", "بيت لحم"],
+          "sizes": ["750 مل", "3 لتر", "16 لتر"],
+          "unit": "piece",
+          "priceMin": 35.0,
+          "priceMax": 420.0
+        },
+        {
+          "base": "زيت دوار الشمس",
+          "brands": ["الأمير", "زيتنا"],
+          "sizes": ["1 لتر", "3 لتر"],
+          "unit": "piece",
+          "priceMin": 12.0,
+          "priceMax": 42.0
+        },
+        {
+          "base": "زيت ذرة",
+          "brands": ["مازولا", "الأمير"],
+          "sizes": ["1 لتر", "1.8 لتر"],
+          "unit": "piece",
+          "priceMin": 14.0,
+          "priceMax": 34.0
+        },
+        {
+          "base": "سمنة نباتية",
+          "brands": ["الأمير", "الطاووس"],
+          "sizes": ["500 غم", "900 غم"],
+          "unit": "piece",
+          "priceMin": 12.0,
+          "priceMax": 30.0
+        }
+      ]
+    },
+    {
+      "key": "spices",
+      "nameAr": "توابل وبهارات",
+      "nameEn": "Spices",
+      "families": [
+        {
+          "base": "بهارات مشكلة",
+          "brands": ["الفلك", "أبو غوش"],
+          "sizes": ["100 غم", "250 غم"],
+          "unit": "piece",
+          "priceMin": 4.0,
+          "priceMax": 14.0
+        },
+        {
+          "base": "كمون مطحون",
+          "brands": ["الفلك", "أبو غوش"],
+          "sizes": ["100 غم", "250 غم"],
+          "unit": "piece",
+          "priceMin": 5.0,
+          "priceMax": 16.0
+        },
+        {
+          "base": "فلفل أسود",
+          "brands": ["الفلك", "أبو غوش"],
+          "sizes": ["100 غم", "250 غم"],
+          "unit": "piece",
+          "priceMin": 6.0,
+          "priceMax": 20.0
+        },
+        {
+          "base": "زعتر بلدي",
+          "brands": ["الفلك", "جنين"],
+          "sizes": ["250 غم", "500 غم"],
+          "unit": "piece",
+          "priceMin": 10.0,
+          "priceMax": 28.0
+        },
+        {
+          "base": "سماق",
+          "brands": ["الفلك"],
+          "sizes": ["100 غم", "250 غم"],
+          "unit": "piece",
+          "priceMin": 5.0,
+          "priceMax": 14.0
+        },
+        {
+          "base": "ملح طعام",
+          "brands": ["البحر الميت", "الفلك"],
+          "sizes": ["500 غم", "1 كغ"],
+          "unit": "piece",
+          "priceMin": 1.5,
+          "priceMax": 5.0
+        }
+      ]
+    },
+    {
+      "key": "rice_pasta",
+      "nameAr": "أرز ومعكرونة",
+      "nameEn": "Rice & Pasta",
+      "families": [
+        {
+          "base": "أرز بسمتي",
+          "brands": ["أبو كاس", "الفهد", "إنديا جيت"],
+          "sizes": ["1 كغ", "5 كغ"],
+          "unit": "piece",
+          "priceMin": 12.0,
+          "priceMax": 75.0
+        },
+        {
+          "base": "أرز مصري",
+          "brands": ["أبو كاس", "الفهد"],
+          "sizes": ["1 كغ", "5 كغ"],
+          "unit": "piece",
+          "priceMin": 8.0,
+          "priceMax": 45.0
+        },
+        {
+          "base": "معكرونة اسباغيتي",
+          "brands": ["الأمير", "باريلا"],
+          "sizes": ["400 غم", "500 غم"],
+          "unit": "piece",
+          "priceMin": 3.0,
+          "priceMax": 12.0
+        },
+        {
+          "base": "معكرونة قلم",
+          "brands": ["الأمير", "باريلا"],
+          "sizes": ["400 غم", "500 غم"],
+          "unit": "piece",
+          "priceMin": 3.0,
+          "priceMax": 12.0
+        },
+        {
+          "base": "شعيرية",
+          "brands": ["الأمير"],
+          "sizes": ["250 غم", "500 غم"],
+          "unit": "piece",
+          "priceMin": 2.5,
+          "priceMax": 8.0
+        }
+      ]
+    },
+    {
+      "key": "frozen",
+      "nameAr": "مجمدات",
+      "nameEn": "Frozen",
+      "families": [
+        {
+          "base": "بازيلاء مجمدة",
+          "brands": ["سنفروست", "الأمير"],
+          "sizes": ["400 غم", "800 غم"],
+          "unit": "piece",
+          "priceMin": 7.0,
+          "priceMax": 18.0,
+          "trackExpiry": true
+        },
+        {
+          "base": "خضار مشكلة مجمدة",
+          "brands": ["سنفروست", "الأمير"],
+          "sizes": ["400 غم", "800 غم"],
+          "unit": "piece",
+          "priceMin": 8.0,
+          "priceMax": 20.0,
+          "trackExpiry": true
+        },
+        {
+          "base": "بطاطا مقلية مجمدة",
+          "brands": ["مكين", "سنفروست"],
+          "sizes": ["750 غم", "2.5 كغ"],
+          "unit": "piece",
+          "priceMin": 10.0,
+          "priceMax": 34.0,
+          "trackExpiry": true
+        },
+        {
+          "base": "سمك فيليه مجمد",
+          "brands": ["البحر", "سنفروست"],
+          "sizes": ["500 غم", "1 كغ"],
+          "unit": "piece",
+          "priceMin": 22.0,
+          "priceMax": 60.0,
+          "trackExpiry": true
+        },
+        {
+          "base": "آيس كريم",
+          "brands": ["كريمو", "نستله"],
+          "sizes": ["500 مل", "1.5 لتر"],
+          "unit": "piece",
+          "priceMin": 8.0,
+          "priceMax": 32.0,
+          "trackExpiry": true
+        }
+      ]
+    },
+    {
+      "key": "baby_food",
+      "nameAr": "أغذية أطفال",
+      "nameEn": "Baby Food",
+      "families": [
+        {
+          "base": "حليب أطفال مرحلة 1",
+          "brands": ["نان", "أبتاميل", "سيميلاك"],
+          "sizes": ["400 غم", "900 غم"],
+          "unit": "piece",
+          "priceMin": 45.0,
+          "priceMax": 140.0,
+          "trackExpiry": true
+        },
+        {
+          "base": "حليب أطفال مرحلة 2",
+          "brands": ["نان", "أبتاميل", "سيميلاك"],
+          "sizes": ["400 غم", "900 غم"],
+          "unit": "piece",
+          "priceMin": 45.0,
+          "priceMax": 140.0,
+          "trackExpiry": true
+        },
+        {
+          "base": "سيريلاك قمح",
+          "brands": ["نستله"],
+          "sizes": ["250 غم", "400 غم"],
+          "unit": "piece",
+          "priceMin": 18.0,
+          "priceMax": 38.0,
+          "trackExpiry": true
+        },
+        {
+          "base": "بسكويت أطفال",
+          "brands": ["نستله", "هيرو"],
+          "sizes": ["180 غم", "300 غم"],
+          "unit": "piece",
+          "priceMin": 8.0,
+          "priceMax": 22.0,
+          "trackExpiry": true
+        }
+      ]
+    },
+    {
+      "key": "paper",
+      "nameAr": "ورقيات ومناديل",
+      "nameEn": "Paper & Tissues",
+      "families": [
+        {
+          "base": "مناديل ورقية",
+          "brands": ["فاين", "سوفتكس"],
+          "sizes": ["علبة 150", "عبوة 5"],
+          "unit": "piece",
+          "priceMin": 4.0,
+          "priceMax": 26.0
+        },
+        {
+          "base": "ورق تواليت",
+          "brands": ["فاين", "سوفتكس"],
+          "sizes": ["عبوة 6", "عبوة 12"],
+          "unit": "piece",
+          "priceMin": 12.0,
+          "priceMax": 38.0
+        },
+        {
+          "base": "مناديل مبللة",
+          "brands": ["فاين", "جونسون"],
+          "sizes": ["عبوة 72", "عبوة 120"],
+          "unit": "piece",
+          "priceMin": 6.0,
+          "priceMax": 18.0
+        },
+        {
+          "base": "ورق مطبخ",
+          "brands": ["فاين", "سوفتكس"],
+          "sizes": ["لفة", "عبوة 4"],
+          "unit": "piece",
+          "priceMin": 5.0,
+          "priceMax": 24.0
+        }
+      ]
+    },
+    {
+      "key": "tea_coffee",
+      "nameAr": "شاي وقهوة",
+      "nameEn": "Tea & Coffee",
+      "families": [
+        {
+          "base": "شاي أسود",
+          "brands": ["ليبتون", "الوزة", "أحمد"],
+          "sizes": ["100 ظرف", "400 غم"],
+          "unit": "piece",
+          "priceMin": 9.0,
+          "priceMax": 34.0
+        },
+        {
+          "base": "قهوة عربية بالهيل",
+          "brands": ["الفلك", "أبو غوش"],
+          "sizes": ["250 غم", "500 غم"],
+          "unit": "piece",
+          "priceMin": 14.0,
+          "priceMax": 42.0
+        },
+        {
+          "base": "قهوة سريعة الذوبان",
+          "brands": ["نسكافيه", "جاكوبس"],
+          "sizes": ["100 غم", "200 غم"],
+          "unit": "piece",
+          "priceMin": 18.0,
+          "priceMax": 55.0
+        },
+        {
+          "base": "نسكافيه 3 في 1",
+          "brands": ["نستله"],
+          "sizes": ["عبوة 20", "عبوة 30"],
+          "unit": "piece",
+          "priceMin": 14.0,
+          "priceMax": 34.0
+        },
+        {
+          "base": "زهورات",
+          "brands": ["الفلك", "أبو غوش"],
+          "sizes": ["100 غم", "250 غم"],
+          "unit": "piece",
+          "priceMin": 6.0,
+          "priceMax": 18.0
+        }
+      ]
+    },
+    {
+      "key": "nuts",
+      "nameAr": "مكسرات وياميش",
+      "nameEn": "Nuts & Dried Fruits",
+      "families": [
+        {
+          "base": "لوز محمص",
+          "brands": ["الفلك"],
+          "sizes": [""],
+          "unit": "kg",
+          "priceMin": 60.0,
+          "priceMax": 95.0,
+          "weighed": true
+        },
+        {
+          "base": "كاجو محمص",
+          "brands": ["الفلك"],
+          "sizes": [""],
+          "unit": "kg",
+          "priceMin": 80.0,
+          "priceMax": 130.0,
+          "weighed": true
+        },
+        {
+          "base": "فستق حلبي",
+          "brands": ["الفلك"],
+          "sizes": [""],
+          "unit": "kg",
+          "priceMin": 90.0,
+          "priceMax": 150.0,
+          "weighed": true
+        },
+        {
+          "base": "بذر مملّح",
+          "brands": ["الفلك", "أبو غوش"],
+          "sizes": [""],
+          "unit": "kg",
+          "priceMin": 25.0,
+          "priceMax": 45.0,
+          "weighed": true
+        },
+        {
+          "base": "تمر مجدول",
+          "brands": ["أريحا", "الفلك"],
+          "sizes": ["500 غم", "1 كغ"],
+          "unit": "piece",
+          "priceMin": 25.0,
+          "priceMax": 70.0
+        },
+        {
+          "base": "مشمش مجفف",
+          "brands": ["الفلك"],
+          "sizes": ["250 غم", "500 غم"],
+          "unit": "piece",
+          "priceMin": 14.0,
+          "priceMax": 34.0
+        }
+      ]
+    },
+    {
+      "key": "sugar",
+      "nameAr": "سكر ومحليات",
+      "nameEn": "Sugar & Sweeteners",
+      "families": [
+        {
+          "base": "سكر أبيض",
+          "brands": ["الأمير", "الفلك"],
+          "sizes": ["1 كغ", "5 كغ"],
+          "unit": "piece",
+          "priceMin": 4.0,
+          "priceMax": 24.0
+        },
+        {
+          "base": "سكر بني",
+          "brands": ["الأمير"],
+          "sizes": ["500 غم", "1 كغ"],
+          "unit": "piece",
+          "priceMin": 5.0,
+          "priceMax": 12.0
+        },
+        {
+          "base": "عسل طبيعي",
+          "brands": ["مناحل الفلك", "بلدي"],
+          "sizes": ["500 غم", "1 كغ"],
+          "unit": "piece",
+          "priceMin": 35.0,
+          "priceMax": 120.0
+        },
+        {
+          "base": "دبس عنب",
+          "brands": ["الفلك", "بلدي"],
+          "sizes": ["500 غم", "1 كغ"],
+          "unit": "piece",
+          "priceMin": 15.0,
+          "priceMax": 38.0
+        },
+        {
+          "base": "محلي صناعي",
+          "brands": ["كانديرل", "سويت آند لو"],
+          "sizes": ["عبوة 100", "عبوة 300"],
+          "unit": "piece",
+          "priceMin": 12.0,
+          "priceMax": 32.0
+        }
+      ]
+    },
+    {
+      "key": "flour",
+      "nameAr": "طحين ومواد خبيز",
+      "nameEn": "Flour & Baking",
+      "families": [
+        {
+          "base": "طحين أبيض",
+          "brands": ["الأمير", "مطاحن القدس"],
+          "sizes": ["1 كغ", "5 كغ"],
+          "unit": "piece",
+          "priceMin": 4.0,
+          "priceMax": 22.0
+        },
+        {
+          "base": "طحين أسمر",
+          "brands": ["مطاحن القدس"],
+          "sizes": ["1 كغ", "5 كغ"],
+          "unit": "piece",
+          "priceMin": 5.0,
+          "priceMax": 25.0
+        },
+        {
+          "base": "خميرة فورية",
+          "brands": ["فيرمي بان", "الأمير"],
+          "sizes": ["11 غم", "125 غم"],
+          "unit": "piece",
+          "priceMin": 1.5,
+          "priceMax": 10.0,
+          "trackExpiry": true
+        },
+        {
+          "base": "بيكنج بودر",
+          "brands": ["الأمير", "دكتور أوتكر"],
+          "sizes": ["ظرف", "علبة 100 غم"],
+          "unit": "piece",
+          "priceMin": 1.0,
+          "priceMax": 9.0
+        },
+        {
+          "base": "نشا ذرة",
+          "brands": ["الأمير"],
+          "sizes": ["200 غم", "400 غم"],
+          "unit": "piece",
+          "priceMin": 3.0,
+          "priceMax": 9.0
+        }
+      ]
+    },
+    {
+      "key": "sauces",
+      "nameAr": "صلصات ومخللات",
+      "nameEn": "Sauces & Pickles",
+      "families": [
+        {
+          "base": "كاتشب",
+          "brands": ["هاينز", "الأمير"],
+          "sizes": ["340 غم", "570 غم"],
+          "unit": "piece",
+          "priceMin": 7.0,
+          "priceMax": 20.0,
+          "trackExpiry": true
+        },
+        {
+          "base": "مايونيز",
+          "brands": ["هاينز", "الأمير"],
+          "sizes": ["250 مل", "500 مل"],
+          "unit": "piece",
+          "priceMin": 8.0,
+          "priceMax": 24.0,
+          "trackExpiry": true
+        },
+        {
+          "base": "مخلل خيار",
+          "brands": ["الأمير", "بلدي"],
+          "sizes": ["500 غم", "1 كغ"],
+          "unit": "piece",
+          "priceMin": 6.0,
+          "priceMax": 16.0
+        },
+        {
+          "base": "زيتون أخضر",
+          "brands": ["بلدي", "الفلك"],
+          "sizes": ["500 غم", "1 كغ"],
+          "unit": "piece",
+          "priceMin": 12.0,
+          "priceMax": 32.0
+        },
+        {
+          "base": "خل تفاح",
+          "brands": ["الأمير", "الفلك"],
+          "sizes": ["500 مل", "1 لتر"],
+          "unit": "piece",
+          "priceMin": 4.0,
+          "priceMax": 12.0
+        },
+        {
+          "base": "طحينة",
+          "brands": ["الجنيدي", "الأمير"],
+          "sizes": ["400 غم", "800 غم"],
+          "unit": "piece",
+          "priceMin": 14.0,
+          "priceMax": 34.0
+        }
+      ]
+    },
+    {
+      "key": "snacks",
+      "nameAr": "وجبات خفيفة وشيبس",
+      "nameEn": "Snacks",
+      "families": [
+        {
+          "base": "شيبس بطاطا",
+          "brands": ["تيستي", "ليز", "بيسان"],
+          "sizes": ["كيس صغير", "كيس كبير"],
+          "unit": "piece",
+          "priceMin": 1.5,
+          "priceMax": 12.0,
+          "trackExpiry": true
+        },
+        {
+          "base": "بوشار",
+          "brands": ["تيستي", "بيسان"],
+          "sizes": ["كيس صغير", "كيس كبير"],
+          "unit": "piece",
+          "priceMin": 2.0,
+          "priceMax": 10.0
+        },
+        {
+          "base": "ذرة منفوشة",
+          "brands": ["تيستي", "بيسان"],
+          "sizes": ["كيس صغير", "كيس كبير"],
+          "unit": "piece",
+          "priceMin": 2.0,
+          "priceMax": 9.0
+        },
+        {
+          "base": "مقرمشات مملحة",
+          "brands": ["تيستي", "لواكر"],
+          "sizes": ["100 غم", "250 غم"],
+          "unit": "piece",
+          "priceMin": 3.0,
+          "priceMax": 12.0
+        }
+      ]
+    },
+    {
+      "key": "kitchen",
+      "nameAr": "مستلزمات المطبخ",
+      "nameEn": "Kitchen Supplies",
+      "families": [
+        {
+          "base": "أكياس تجميد",
+          "brands": ["الفلك", "فاين"],
+          "sizes": ["عبوة 50", "عبوة 100"],
+          "unit": "piece",
+          "priceMin": 4.0,
+          "priceMax": 14.0
+        },
+        {
+          "base": "ورق ألمنيوم",
+          "brands": ["فاين", "الفلك"],
+          "sizes": ["لفة صغيرة", "لفة كبيرة"],
+          "unit": "piece",
+          "priceMin": 6.0,
+          "priceMax": 22.0
+        },
+        {
+          "base": "أكواب كرتون",
+          "brands": ["فاين"],
+          "sizes": ["عبوة 50", "عبوة 100"],
+          "unit": "piece",
+          "priceMin": 7.0,
+          "priceMax": 20.0
+        },
+        {
+          "base": "صحون بلاستيك",
+          "brands": ["الفلك"],
+          "sizes": ["عبوة 25", "عبوة 50"],
+          "unit": "piece",
+          "priceMin": 6.0,
+          "priceMax": 18.0
+        },
+        {
+          "base": "إسفنج جلي",
+          "brands": ["الفلك", "سكوتش"],
+          "sizes": ["عبوة 3", "عبوة 6"],
+          "unit": "piece",
+          "priceMin": 3.0,
+          "priceMax": 12.0
+        }
+      ]
+    },
+    {
+      "key": "household",
+      "nameAr": "أدوات منزلية",
+      "nameEn": "Household",
+      "families": [
+        {
+          "base": "أكياس قمامة",
+          "brands": ["الفلك", "فاين"],
+          "sizes": ["عبوة 20", "عبوة 40"],
+          "unit": "piece",
+          "priceMin": 6.0,
+          "priceMax": 22.0
+        },
+        {
+          "base": "مكنسة أرضية",
+          "brands": ["الفلك"],
+          "sizes": ["عادية", "كبيرة"],
+          "unit": "piece",
+          "priceMin": 15.0,
+          "priceMax": 45.0
+        },
+        {
+          "base": "ممسحة أرضيات",
+          "brands": ["الفلك"],
+          "sizes": ["عادية", "كبيرة"],
+          "unit": "piece",
+          "priceMin": 12.0,
+          "priceMax": 40.0
+        },
+        {
+          "base": "بطاريات",
+          "brands": ["دوراسيل", "إنرجايزر"],
+          "sizes": ["AA عبوة 4", "AAA عبوة 4"],
+          "unit": "piece",
+          "priceMin": 10.0,
+          "priceMax": 30.0
+        },
+        {
+          "base": "لمبة ليد",
+          "brands": ["فيليبس", "الفلك"],
+          "sizes": ["9 واط", "12 واط"],
+          "unit": "piece",
+          "priceMin": 8.0,
+          "priceMax": 26.0
+        }
+      ]
+    },
+    {
+      "key": "baby_care",
+      "nameAr": "مستلزمات الأطفال",
+      "nameEn": "Baby Care",
+      "families": [
+        {
+          "base": "حفاضات أطفال مقاس 3",
+          "brands": ["بامبرز", "مولفيكس"],
+          "sizes": ["عبوة 40", "عبوة 76"],
+          "unit": "piece",
+          "priceMin": 35.0,
+          "priceMax": 110.0
+        },
+        {
+          "base": "حفاضات أطفال مقاس 4",
+          "brands": ["بامبرز", "مولفيكس"],
+          "sizes": ["عبوة 36", "عبوة 68"],
+          "unit": "piece",
+          "priceMin": 35.0,
+          "priceMax": 110.0
+        },
+        {
+          "base": "شامبو أطفال",
+          "brands": ["جونسون"],
+          "sizes": ["200 مل", "500 مل"],
+          "unit": "piece",
+          "priceMin": 14.0,
+          "priceMax": 34.0
+        },
+        {
+          "base": "زجاجة رضاعة",
+          "brands": ["أفنت", "شيكو"],
+          "sizes": ["150 مل", "260 مل"],
+          "unit": "piece",
+          "priceMin": 22.0,
+          "priceMax": 60.0
+        }
+      ]
+    },
+    {
+      "key": "health",
+      "nameAr": "صحة وأدوية عامة",
+      "nameEn": "Health & OTC",
+      "families": [
+        {
+          "base": "باراسيتامول 500 ملغ",
+          "brands": ["بيرزيت فارما", "الجزيرة"],
+          "sizes": ["شريط 10", "علبة 20"],
+          "unit": "strip",
+          "priceMin": 3.0,
+          "priceMax": 14.0,
+          "trackExpiry": true
+        },
+        {
+          "base": "فيتامين سي 1000 ملغ",
+          "brands": ["سولجار", "بيرزيت فارما"],
+          "sizes": ["علبة 20", "علبة 60"],
+          "unit": "box",
+          "priceMin": 15.0,
+          "priceMax": 65.0,
+          "trackExpiry": true
+        },
+        {
+          "base": "شاش طبي",
+          "brands": ["الفلك"],
+          "sizes": ["صغير", "كبير"],
+          "unit": "piece",
+          "priceMin": 3.0,
+          "priceMax": 12.0
+        },
+        {
+          "base": "لاصق جروح",
+          "brands": ["هانسابلاست"],
+          "sizes": ["علبة 10", "علبة 40"],
+          "unit": "box",
+          "priceMin": 6.0,
+          "priceMax": 24.0
+        },
+        {
+          "base": "كمامات طبية",
+          "brands": ["الفلك"],
+          "sizes": ["علبة 50"],
+          "unit": "box",
+          "priceMin": 10.0,
+          "priceMax": 25.0
+        }
+      ]
+    },
+    {
+      "key": "healthy",
+      "nameAr": "أغذية صحية ودايت",
+      "nameEn": "Healthy & Diet",
+      "families": [
+        {
+          "base": "شوفان",
+          "brands": ["كويكر", "الفلك"],
+          "sizes": ["500 غم", "1 كغ"],
+          "unit": "piece",
+          "priceMin": 10.0,
+          "priceMax": 28.0
+        },
+        {
+          "base": "كورن فليكس",
+          "brands": ["كيلوجز", "نستله"],
+          "sizes": ["375 غم", "500 غم"],
+          "unit": "piece",
+          "priceMin": 14.0,
+          "priceMax": 34.0,
+          "trackExpiry": true
+        },
+        {
+          "base": "بذور شيا",
+          "brands": ["الفلك"],
+          "sizes": ["200 غم", "400 غم"],
+          "unit": "piece",
+          "priceMin": 14.0,
+          "priceMax": 34.0
+        },
+        {
+          "base": "زبدة فول سوداني",
+          "brands": ["الفلك", "كابتن"],
+          "sizes": ["350 غم", "500 غم"],
+          "unit": "piece",
+          "priceMin": 16.0,
+          "priceMax": 38.0,
+          "trackExpiry": true
+        },
+        {
+          "base": "خبز نخالة",
+          "brands": ["الشامي"],
+          "sizes": ["350 غم", "600 غم"],
+          "unit": "piece",
+          "priceMin": 6.0,
+          "priceMax": 14.0,
+          "trackExpiry": true
+        }
+      ]
+    },
+    {
+      "key": "grocery_misc",
+      "nameAr": "بقالة متنوعة",
+      "nameEn": "General Grocery",
+      "families": [
+        {
+          "base": "بيض بلدي",
+          "brands": ["مزارع الفلك"],
+          "sizes": ["طبق 30", "علبة 12"],
+          "unit": "piece",
+          "priceMin": 12.0,
+          "priceMax": 34.0,
+          "trackExpiry": true
+        },
+        {
+          "base": "ملح ليمون",
+          "brands": ["الفلك"],
+          "sizes": ["100 غم", "250 غم"],
+          "unit": "piece",
+          "priceMin": 3.0,
+          "priceMax": 8.0
+        },
+        {
+          "base": "جيلاتين",
+          "brands": ["دكتور أوتكر"],
+          "sizes": ["ظرف", "علبة"],
+          "unit": "piece",
+          "priceMin": 2.0,
+          "priceMax": 10.0
+        },
+        {
+          "base": "مرقة دجاج مكعبات",
+          "brands": ["ماجي", "كنور"],
+          "sizes": ["علبة 8", "علبة 24"],
+          "unit": "piece",
+          "priceMin": 4.0,
+          "priceMax": 18.0,
+          "trackExpiry": true
+        },
+        {
+          "base": "صلصة صويا",
+          "brands": ["كيكومان", "الأمير"],
+          "sizes": ["150 مل", "500 مل"],
+          "unit": "piece",
+          "priceMin": 8.0,
+          "priceMax": 26.0
+        }
+      ]
+    },
+    {
+      "key": "water_soda",
+      "nameAr": "مياه ومشروبات غازية",
+      "nameEn": "Water & Soft Drinks",
+      "families": [
+        {
+          "base": "مياه معدنية",
+          "brands": ["كنعان", "جيريكو"],
+          "sizes": ["500 مل", "1.5 لتر", "6 لتر"],
+          "unit": "piece",
+          "priceMin": 1.0,
+          "priceMax": 9.0
+        },
+        {
+          "base": "كولا",
+          "brands": ["كوكاكولا", "بيبسي"],
+          "sizes": ["330 مل", "1.5 لتر", "2 لتر"],
+          "unit": "piece",
+          "priceMin": 2.5,
+          "priceMax": 12.0,
+          "trackExpiry": true
+        },
+        {
+          "base": "مشروب برتقال غازي",
+          "brands": ["ميرندا", "فانتا"],
+          "sizes": ["330 مل", "1.5 لتر"],
+          "unit": "piece",
+          "priceMin": 2.5,
+          "priceMax": 10.0,
+          "trackExpiry": true
+        },
+        {
+          "base": "سفن أب",
+          "brands": ["سفن أب", "سبرايت"],
+          "sizes": ["330 مل", "1.5 لتر"],
+          "unit": "piece",
+          "priceMin": 2.5,
+          "priceMax": 10.0,
+          "trackExpiry": true
+        },
+        {
+          "base": "مياه غازية",
+          "brands": ["كنعان"],
+          "sizes": ["500 مل", "1.5 لتر"],
+          "unit": "piece",
+          "priceMin": 2.0,
+          "priceMax": 7.0
+        }
+      ]
+    },
+    {
+      "key": "pet",
+      "nameAr": "مستلزمات الحيوانات الأليفة",
+      "nameEn": "Pet Supplies",
+      "families": [
+        {
+          "base": "طعام قطط جاف",
+          "brands": ["ويسكاس", "فريسكيز"],
+          "sizes": ["1.5 كغ", "3 كغ"],
+          "unit": "piece",
+          "priceMin": 30.0,
+          "priceMax": 90.0,
+          "trackExpiry": true
+        },
+        {
+          "base": "طعام كلاب جاف",
+          "brands": ["بيديجري", "دوج تشاو"],
+          "sizes": ["2.5 كغ", "8 كغ"],
+          "unit": "piece",
+          "priceMin": 40.0,
+          "priceMax": 180.0,
+          "trackExpiry": true
+        },
+        {
+          "base": "رمل قطط",
+          "brands": ["الفلك"],
+          "sizes": ["5 كغ", "10 كغ"],
+          "unit": "piece",
+          "priceMin": 18.0,
+          "priceMax": 45.0
+        },
+        {
+          "base": "حبوب طيور",
+          "brands": ["الفلك"],
+          "sizes": ["500 غم", "1 كغ"],
+          "unit": "piece",
+          "priceMin": 8.0,
+          "priceMax": 20.0
+        }
+      ]
+    }
+  ]
+}

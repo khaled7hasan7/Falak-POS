@@ -1,0 +1,35 @@
+{
+  "name": "@falak/agent",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/main.ts",
+    "start": "tsx src/main.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@falak/contracts": "workspace:*",
+    "@falak/core": "workspace:*",
+    "@falak/db": "workspace:*",
+    "@fastify/cors": "^11.1.0",
+    "@fastify/multipart": "^9.2.1",
+    "@node-rs/argon2": "^2.0.2",
+    "dotenv": "^17.2.3",
+    "drizzle-orm": "^0.44.7",
+    "fastify": "^5.6.1",
+    "jose": "^6.1.0",
+    "pg": "^8.16.3",
+    "xlsx": "^0.18.5",
+    "zod": "^4.1.13"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "@types/pg": "^8.15.6",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
+  }
+}

@@ -1,3 +1,7 @@
+-- 0001_init.sql — نسخة حرفية من docs/falak_pos_schema.sql (المصدر الوحيد للـ DDL).
+-- لا يُعدَّل هذا الملف يدوياً: أي تغيير في المخطط يبدأ من الوثيقة ثم يُضاف كترحيل جديد.
+-- نُسخ بـ cp قبل أي تعديل لاحق على الوثيقة (انظر ترويسة 0002_updated_at.sql).
+
 -- =====================================================================
 --  Falak POS — PostgreSQL schema  v0.1
 --  نفس المخطط يعمل محلياً عند العميل (مستأجر واحد) وعلى السحابة (عدة مستأجرين)
@@ -257,7 +261,6 @@ CREATE TABLE product_barcodes (
   barcode         text NOT NULL,
   is_primary      boolean NOT NULL DEFAULT false,
   created_at      timestamptz NOT NULL DEFAULT now(),
-  updated_at      timestamptz NOT NULL DEFAULT now(),   -- ADR-003: كيان يُزامَن بـ upsert على updated_at
   deleted_at      timestamptz,
   UNIQUE (tenant_id, barcode)
 );
@@ -431,8 +434,7 @@ CREATE TABLE stocktakes (
   approved_by   uuid REFERENCES users(id),
   started_at    timestamptz NOT NULL DEFAULT now(),
   approved_at   timestamptz,
-  note          text,
-  updated_at    timestamptz NOT NULL DEFAULT now()        -- ADR-003: كيان يُزامَن بـ upsert على updated_at
+  note          text
 );
 
 CREATE TABLE stocktake_lines (
@@ -458,8 +460,7 @@ CREATE TABLE breakdown_runs (
   input_cost         numeric(14,2) NOT NULL,        -- التكلفة الإجمالية للمدخل
   waste_qty          numeric(14,3) NOT NULL DEFAULT 0,
   user_id            uuid REFERENCES users(id),
-  created_at         timestamptz NOT NULL DEFAULT now(),
-  updated_at         timestamptz NOT NULL DEFAULT now()   -- ADR-003: كيان يُزامَن بـ upsert على updated_at
+  created_at         timestamptz NOT NULL DEFAULT now()
 );
 
 CREATE TABLE breakdown_run_lines (
@@ -550,8 +551,7 @@ CREATE TABLE shifts (
   expected_cash     jsonb,                                -- محسوب من الحركات
   counted_cash      jsonb,                                -- ما عدّه الكاشير
   difference        jsonb,                                -- العجز/الزيادة لكل عملة
-  note              text,
-  updated_at        timestamptz NOT NULL DEFAULT now()    -- ADR-003: تُحدَّث عند الإغلاق فتُزامَن بـ updated_at
+  note              text
 );
 CREATE INDEX shifts_open_idx ON shifts (cash_register_id) WHERE status = 'open';
 
@@ -579,7 +579,6 @@ CREATE TABLE expense_categories (
   id         uuid PRIMARY KEY DEFAULT gen_random_uuid(),
   tenant_id  uuid NOT NULL REFERENCES tenants(id),
   name       text NOT NULL,                          -- كهرباء، إيجار، رواتب، نثرية
-  updated_at timestamptz NOT NULL DEFAULT now(),      -- ADR-003: كيان يُزامَن بـ upsert على updated_at
   deleted_at timestamptz
 );
 
@@ -712,7 +711,6 @@ CREATE TABLE insurance_companies (
   contact               text,
   is_active             boolean NOT NULL DEFAULT true,
   created_at            timestamptz NOT NULL DEFAULT now(),
-  updated_at            timestamptz NOT NULL DEFAULT now(),  -- ADR-003: كيان يُزامَن بـ upsert على updated_at
   deleted_at            timestamptz
 );
 
