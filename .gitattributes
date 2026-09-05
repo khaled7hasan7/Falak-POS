@@ -1,0 +1,11 @@
+# نهايات الأسطر LF في كل مكان — المستودع وشجرة العمل معاً،
+# حتى يتطابق فحص Prettier محلياً (ويندوز) ومع CI (لينكس).
+* text=auto eol=lf
+
+# ملفات ثنائية لا تُلمس
+*.woff2 binary
+*.png   binary
+*.jpg   binary
+*.ico   binary
+*.xlsx  binary
+*.dump  binary
