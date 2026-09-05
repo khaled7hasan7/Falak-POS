@@ -197,6 +197,9 @@ importers:
 
   packages/db:
     dependencies:
+      '@falak/core':
+        specifier: workspace:*
+        version: link:../core
       '@node-rs/argon2':
         specifier: ^2.0.2
         version: 2.2.0

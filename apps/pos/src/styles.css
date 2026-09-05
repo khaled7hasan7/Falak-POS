@@ -1,0 +1,24 @@
+/**
+ * أنماط التطبيق — الـ tokens والخطوط من @falak/ui، ولا قيمة لونية أو مقاسية هنا.
+ * القاعدة 5 في CLAUDE.md: لا لون ولا مقاس خارج الـ tokens.
+ */
+@import '@falak/ui/tokens.css';
+@import '@falak/ui/fonts.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    background: var(--page);
+    color: var(--text);
+    font-family: var(--font-ui);
+  }
+}

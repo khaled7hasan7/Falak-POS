@@ -1,7 +1,6 @@
 {
   "app.name": "Falak POS",
   "app.tagline": "A point-of-sale system by Falak Tech",
-
   "nav.dashboard": "Overview",
   "nav.products": "Products",
   "nav.categories": "Categories",
@@ -9,7 +8,6 @@
   "nav.priceLists": "Price lists",
   "nav.import": "Import",
   "nav.settings": "Settings",
-
   "action.save": "Save",
   "action.cancel": "Cancel",
   "action.add": "Add",
@@ -25,7 +23,6 @@
   "action.clear": "Clear",
   "action.export": "Export",
   "action.print": "Print",
-
   "auth.title": "Sign in",
   "auth.username": "Username",
   "auth.password": "Password",
@@ -40,7 +37,6 @@
   "auth.invalidPin": "That PIN is incorrect. Re-enter it, or ask a manager to reset it.",
   "auth.accountDisabled": "This account is disabled. Ask a manager to enable it.",
   "auth.sessionExpired": "Your session expired. Sign in again to continue.",
-
   "product.title": "Products",
   "product.new": "New product",
   "product.edit": "Edit product",
@@ -63,7 +59,6 @@
   "product.count": "{count} products",
   "product.deleted": "Deleted “{name}”",
   "product.saved": "Saved “{name}”",
-
   "unit.title": "Selling units",
   "unit.add": "Add unit",
   "unit.name": "Unit",
@@ -72,7 +67,6 @@
   "unit.isDefault": "Default unit",
   "unit.allowFraction": "Accepts fractions",
   "unit.needOneDefault": "Pick exactly one default unit.",
-
   "barcode.title": "Barcodes",
   "barcode.add": "Add barcode",
   "barcode.value": "Barcode",
@@ -82,20 +76,17 @@
   "barcode.duplicate": "This barcode belongs to another product. Remove it there, or use a different number.",
   "barcode.invalid": "A barcode is digits only, between 4 and 24 of them.",
   "barcode.notFound": "No product has this barcode. Add it, or search by name.",
-
   "price.title": "Prices",
   "price.list": "Price list",
   "price.value": "Price",
   "price.minPrice": "Floor price",
   "price.minPriceHint": "Never sold below this without a special permission",
   "price.required": "Enter a price for the default unit at least.",
-
   "category.title": "Categories",
   "category.new": "New category",
   "category.name": "Category name",
   "category.parent": "Parent category",
   "category.color": "Colour",
-
   "import.title": "Import products",
   "import.chooseFile": "Choose an Excel file",
   "import.preview": "Preview",
@@ -112,14 +103,12 @@
   "import.updateDuplicate": "Update the existing product",
   "import.missingName": "Product name is empty.",
   "import.invalidPrice": "Price is not a number.",
-
   "state.loading": "Loading…",
   "state.empty": "Nothing here yet",
   "state.emptyProducts": "No products yet — import from Excel or add one.",
   "state.emptySearch": "No results for “{query}”. Try a shorter word, or search by barcode.",
   "state.error": "Something went wrong",
   "state.offline": "Cannot reach the local agent. Check that it is running on the till.",
-
   "error.required": "This field is required.",
   "error.tooLong": "Longer than {max} characters.",
   "error.notANumber": "Enter a number.",
@@ -128,19 +117,43 @@
   "error.notFound": "Not found — it may have been deleted.",
   "error.serverDown": "The server is unreachable. Try again shortly.",
   "error.unknown": "Unexpected error. Try again, and tell support if it repeats.",
-
   "confirm.delete": "Delete “{name}”?",
   "confirm.deleteNote": "It can be restored later — deleting here never erases data.",
   "confirm.discard": "Leave without saving your changes?",
-
   "table.rowsPerPage": "Rows per page",
   "table.page": "Page {page} of {total}",
   "table.noColumns": "No columns to show",
   "table.total": "Total",
-
   "settings.language": "Language",
   "settings.theme": "Theme",
   "settings.themeLight": "Light",
   "settings.themeDark": "Dark",
-  "settings.themeSystem": "Follow system"
+  "settings.themeSystem": "Follow system",
+  "role.owner": "Owner",
+  "role.manager": "Manager",
+  "role.cashier": "Cashier",
+  "role.stock_keeper": "Stock keeper",
+  "role.accountant": "Accountant",
+  "nav.devUi": "Component gallery",
+  "filter.all": "All",
+  "product.section.basic": "Basic details",
+  "product.section.options": "Options",
+  "product.addUnit": "Add a unit",
+  "product.addBarcode": "Add a barcode",
+  "product.removeRow": "Remove row",
+  "unit.symbol": "Symbol",
+  "unit.remove": "Remove unit",
+  "import.priceList": "Target price list",
+  "import.defaultCategory": "Category for rows without one",
+  "import.defaultUnit": "Unit for rows without one",
+  "import.rowNumber": "Row",
+  "import.status": "Result",
+  "import.summary": "Done in {ms} ms",
+  "import.running": "Importing… do not close the page.",
+  "import.statusCreated": "Created",
+  "import.statusUpdated": "Updated",
+  "import.statusSkipped": "Skipped",
+  "import.statusFailed": "Failed",
+  "state.saving": "Saving…",
+  "table.showing": "{from}–{to} of {total}"
 }

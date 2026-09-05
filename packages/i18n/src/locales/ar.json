@@ -1,7 +1,6 @@
 {
   "app.name": "Falak POS",
   "app.tagline": "نظام نقاط بيع من فلك تك",
-
   "nav.dashboard": "نظرة عامة",
   "nav.products": "الأصناف",
   "nav.categories": "التصنيفات",
@@ -9,7 +8,6 @@
   "nav.priceLists": "قوائم الأسعار",
   "nav.import": "استيراد",
   "nav.settings": "الإعدادات",
-
   "action.save": "احفظ",
   "action.cancel": "ألغِ",
   "action.add": "أضف",
@@ -25,7 +23,6 @@
   "action.clear": "امسح",
   "action.export": "صدّر",
   "action.print": "اطبع",
-
   "auth.title": "تسجيل الدخول",
   "auth.username": "اسم المستخدم",
   "auth.password": "كلمة المرور",
@@ -40,7 +37,6 @@
   "auth.invalidPin": "الرمز غير صحيح. أعد إدخاله أو اطلب من المدير إعادة ضبطه.",
   "auth.accountDisabled": "هذا الحساب موقوف. راجع المدير لتفعيله.",
   "auth.sessionExpired": "انتهت جلستك. سجّل الدخول مرة أخرى للمتابعة.",
-
   "product.title": "الأصناف",
   "product.new": "صنف جديد",
   "product.edit": "تعديل الصنف",
@@ -63,7 +59,6 @@
   "product.count": "{count} صنف",
   "product.deleted": "حُذف الصنف «{name}»",
   "product.saved": "حُفظ الصنف «{name}»",
-
   "unit.title": "وحدات البيع",
   "unit.add": "أضف وحدة",
   "unit.name": "الوحدة",
@@ -72,7 +67,6 @@
   "unit.isDefault": "الوحدة الافتراضية",
   "unit.allowFraction": "تقبل الكسور",
   "unit.needOneDefault": "حدّد وحدة افتراضية واحدة بالضبط.",
-
   "barcode.title": "الباركودات",
   "barcode.add": "أضف باركوداً",
   "barcode.value": "الباركود",
@@ -82,20 +76,17 @@
   "barcode.duplicate": "هذا الباركود مستخدم في صنف آخر. امسحه من هناك أو استخدم رقماً غيره.",
   "barcode.invalid": "الباركود أرقام فقط، بين 4 و24 خانة.",
   "barcode.notFound": "لا صنف بهذا الباركود. أضفه أو ابحث بالاسم.",
-
   "price.title": "الأسعار",
   "price.list": "قائمة الأسعار",
   "price.value": "السعر",
   "price.minPrice": "أقل سعر",
   "price.minPriceHint": "لا يُباع تحت هذا السعر إلا بصلاحية خاصة",
   "price.required": "أدخل سعراً للوحدة الافتراضية على الأقل.",
-
   "category.title": "التصنيفات",
   "category.new": "تصنيف جديد",
   "category.name": "اسم التصنيف",
   "category.parent": "التصنيف الأب",
   "category.color": "اللون",
-
   "import.title": "استيراد الأصناف",
   "import.chooseFile": "اختر ملف Excel",
   "import.preview": "معاينة",
@@ -112,14 +103,12 @@
   "import.updateDuplicate": "حدّث الصنف الموجود",
   "import.missingName": "اسم الصنف فارغ.",
   "import.invalidPrice": "السعر ليس رقماً.",
-
   "state.loading": "جارٍ التحميل…",
   "state.empty": "لا توجد بيانات بعد",
   "state.emptyProducts": "لا أصناف بعد — استورد من Excel أو أضف صنفاً.",
   "state.emptySearch": "لا نتائج لـ «{query}». جرّب كلمة أقصر أو ابحث بالباركود.",
   "state.error": "حدث خطأ",
   "state.offline": "لا اتصال بالوكيل المحلي. تأكد أن البرنامج يعمل على جهاز الكاشير.",
-
   "error.required": "هذا الحقل مطلوب.",
   "error.tooLong": "النص أطول من {max} حرفاً.",
   "error.notANumber": "أدخل رقماً.",
@@ -128,19 +117,43 @@
   "error.notFound": "غير موجود — ربما حُذف.",
   "error.serverDown": "تعذّر الوصول للخادم. أعد المحاولة بعد قليل.",
   "error.unknown": "خطأ غير متوقع. أعد المحاولة، وإن تكرر أبلغ الدعم.",
-
   "confirm.delete": "هل تحذف «{name}»؟",
   "confirm.deleteNote": "يمكن استرجاعه لاحقاً — الحذف عندنا لا يمسح البيانات.",
   "confirm.discard": "تترك التعديلات بلا حفظ؟",
-
   "table.rowsPerPage": "صفوف الصفحة",
   "table.page": "صفحة {page} من {total}",
   "table.noColumns": "لا أعمدة للعرض",
   "table.total": "الإجمالي",
-
   "settings.language": "اللغة",
   "settings.theme": "المظهر",
   "settings.themeLight": "فاتح",
   "settings.themeDark": "داكن",
-  "settings.themeSystem": "حسب النظام"
+  "settings.themeSystem": "حسب النظام",
+  "role.owner": "المالك",
+  "role.manager": "المدير",
+  "role.cashier": "الكاشير",
+  "role.stock_keeper": "أمين المخزن",
+  "role.accountant": "المحاسب",
+  "nav.devUi": "معرض المكوّنات",
+  "filter.all": "الكل",
+  "product.section.basic": "البيانات الأساسية",
+  "product.section.options": "خيارات",
+  "product.addUnit": "أضف وحدة",
+  "product.addBarcode": "أضف باركوداً",
+  "product.removeRow": "احذف السطر",
+  "unit.symbol": "الرمز",
+  "unit.remove": "احذف الوحدة",
+  "import.priceList": "قائمة الأسعار المستهدفة",
+  "import.defaultCategory": "تصنيف الصفوف بلا تصنيف",
+  "import.defaultUnit": "وحدة الصفوف بلا وحدة",
+  "import.rowNumber": "الصف",
+  "import.status": "النتيجة",
+  "import.summary": "تمّ في {ms} مللي ثانية",
+  "import.running": "جارٍ الاستيراد… لا تغلق الصفحة.",
+  "import.statusCreated": "أُنشئ",
+  "import.statusUpdated": "حُدِّث",
+  "import.statusSkipped": "تُخطّي",
+  "import.statusFailed": "فشل",
+  "state.saving": "جارٍ الحفظ…",
+  "table.showing": "{from}–{to} من {total}"
 }

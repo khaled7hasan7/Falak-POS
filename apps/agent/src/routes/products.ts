@@ -1,4 +1,5 @@
 import { productInput, productListQuery } from '@falak/contracts'
+import { INTERNAL_BARCODE_PREFIX, internalBarcode } from '@falak/core'
 import {
   categories,
   priceLists,
@@ -194,6 +195,25 @@ export async function productRoutes(app: FastifyInstance): Promise<void> {
           isWeighed: products.isWeighed,
           isActive: products.isActive,
           categoryNameAr: categories.nameAr,
+          // العقد `productListItem` يَعِد بالباركود والوحدة والسعر، فالقائمة تُظهرها
+          // بلا طلب إضافي لكل صف. استعلامات فرعية لا JOIN: الصنف قد يحمل عدة
+          // باركودات وعدة وحدات، والـ JOIN يضاعف الصفوف ويفسد الترقيم.
+          primaryBarcode: sql<string | null>`(
+            SELECT b.barcode FROM product_barcodes b
+            WHERE b.product_id = ${products.id} AND b.deleted_at IS NULL
+            ORDER BY b.is_primary DESC, b.created_at ASC LIMIT 1)`,
+          defaultUnitNameAr: sql<string | null>`(
+            SELECT u.name_ar FROM product_units pu
+            JOIN units u ON u.id = pu.unit_id
+            WHERE pu.product_id = ${products.id} AND pu.deleted_at IS NULL
+            ORDER BY pu.is_default DESC LIMIT 1)`,
+          defaultPrice: sql<string | null>`(
+            SELECT pp.price FROM product_units pu
+            JOIN product_prices pp ON pp.product_unit_id = pu.id
+            JOIN price_lists pl ON pl.id = pp.price_list_id
+                                AND pl.is_default AND pl.deleted_at IS NULL
+            WHERE pu.product_id = ${products.id} AND pu.deleted_at IS NULL
+            ORDER BY pu.is_default DESC LIMIT 1)`,
         })
         .from(products)
         .leftJoin(categories, eq(categories.id, products.categoryId))
@@ -203,6 +223,26 @@ export async function productRoutes(app: FastifyInstance): Promise<void> {
         .offset((page - 1) * perPage)
 
       return { rows, total, page, perPage }
+    }
+  )
+
+  /* ── توليد باركود داخلي (ADR-005) ───────────────────────────────────────── */
+  app.get(
+    '/internal-barcode',
+    { onRequest: app.requirePermission(PERMISSIONS.PRODUCTS_EDIT) },
+    async (request) => {
+      // التوليد في الخادم لا في المتصفح: جهازان يفتحان نموذج صنف في نفس اللحظة
+      // يولّدان نفس الرقم، ويكتشف أحدهما التصادم بعد أن يكون طبع الملصق (ADR-005).
+      const { rows } = await app.pool.query<{ max_serial: string | null }>(
+        `SELECT MAX(SUBSTRING(barcode FROM 4 FOR 9))::bigint AS max_serial
+         FROM product_barcodes
+         WHERE tenant_id = $1 AND deleted_at IS NULL
+           AND barcode LIKE $2 AND barcode ~ '^[0-9]{13}$'`,
+        [tenantOf(request), `${INTERNAL_BARCODE_PREFIX}%`]
+      )
+
+      const next = Number(rows[0]?.max_serial ?? 0) + 1
+      return { barcode: internalBarcode(next), serial: next }
     }
   )
 

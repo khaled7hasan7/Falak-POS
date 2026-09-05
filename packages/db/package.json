@@ -20,6 +20,7 @@
     "gen:import-fixture": "tsx src/scripts/gen-import-fixture.ts"
   },
   "dependencies": {
+    "@falak/core": "workspace:*",
     "@node-rs/argon2": "^2.0.2",
     "drizzle-orm": "^0.44.7",
     "pg": "^8.16.3"
