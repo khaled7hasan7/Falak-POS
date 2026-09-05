@@ -1,5 +1,5 @@
 import type { Pool } from 'pg'
-import { connect, getTestDatabaseUrl } from '../client.js'
+import { connect, ensureTestDatabase } from '../client.js'
 import { runMigrations } from '../migrator.js'
 import { branches, tenants, users, warehouses, roles } from '../schema/index.js'
 
@@ -21,7 +21,8 @@ export type TestContext = Awaited<ReturnType<typeof setupTestDatabase>>
 
 /** يهدم قاعدة الاختبار ويعيد بناءها من الترحيلات، ويعيد اتصالاً جاهزاً */
 export async function setupTestDatabase() {
-  const ctx = connect(getTestDatabaseUrl())
+  // قاعدة خاصة بهذه الحزمة — turbo يشغّل الحزم بالتوازي (انظر ensureTestDatabase)
+  const ctx = connect(await ensureTestDatabase('db'))
   await ctx.pool.query(DROP_AND_RECREATE)
   await runMigrations(ctx.pool)
   return ctx

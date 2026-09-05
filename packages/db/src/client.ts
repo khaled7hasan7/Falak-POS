@@ -61,3 +61,59 @@ export function connect(connectionString: string = getDatabaseUrl()) {
     close: () => pool.end(),
   }
 }
+
+/**
+ * المعاملة كما يمرّرها `db.transaction(...)`.
+ * نوعها يختلف عن `Database` (لا تحمل `$client`)، فيلزم نوع يجمعهما.
+ */
+export type Transaction = Parameters<Parameters<Database['transaction']>[0]>[0]
+
+/**
+ * ما يقبل تنفيذ استعلام: الاتصال نفسه أو معاملة داخله.
+ * كل دالة تكتب في القاعدة تأخذ `Executor` لا `Database`، فتصلح للاستدعاء
+ * داخل معاملة وخارجها بلا تحويل نوع قسري (القاعدة 4 تفرض المعاملة عادةً).
+ */
+export type Executor = Database | Transaction
+
+/**
+ * يضمن وجود قاعدة اختبار باسم مشتق من `TEST_DATABASE_URL`.
+ *
+ * لماذا قاعدة لكل حزمة؟ لأن turbo يشغّل اختبارات الحزم **بالتوازي**، وكلٌّ منها
+ * يهدم المخطط ويعيد بناءه — فلو تشاركت قاعدة واحدة هدم بعضها بعضاً في منتصف
+ * التشغيل. الاسم `falak_pos_test_<suffix>` يفصلها، وإنشاؤها هنا يعني ألا يحتاج
+ * أحد (ولا CI) خطوة تهيئة يدوية.
+ */
+export async function ensureTestDatabase(suffix: string): Promise<string> {
+  const base = getTestDatabaseUrl()
+  const url = new URL(base)
+  const baseName = url.pathname.replace(/^\//, '')
+  const name = `${baseName}_${suffix}`
+
+  // الاتصال بقاعدة `postgres` الإدارية لإنشاء قاعدتنا إن لم توجد
+  const admin = new URL(base)
+  admin.pathname = '/postgres'
+  const adminPool = createPool(admin.toString())
+  try {
+    const { rows } = await adminPool.query('SELECT 1 FROM pg_database WHERE datname = $1', [name])
+    if (rows.length === 0) {
+      // اسم القاعدة لا يقبل معاملاً مربوطاً؛ مشتقّ من اسمنا لا من مدخل مستخدم
+      await adminPool.query(`CREATE DATABASE "${name}"`)
+    }
+  } finally {
+    await adminPool.end()
+  }
+
+  url.pathname = `/${name}`
+  const dbUrl = url.toString()
+
+  const pool = createPool(dbUrl)
+  try {
+    await pool.query(
+      'CREATE EXTENSION IF NOT EXISTS pgcrypto; CREATE EXTENSION IF NOT EXISTS pg_trgm'
+    )
+  } finally {
+    await pool.end()
+  }
+
+  return dbUrl
+}

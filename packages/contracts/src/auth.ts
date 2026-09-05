@@ -11,13 +11,14 @@ export type SystemRole = z.infer<typeof systemRole>
 /**
  * صلاحية بصيغة `module.action` أو `module.action:limit` (01 §6).
  * المثال: `pos.discount_line:10` = خصم سطر حتى 10% بلا موافقة.
+ *
+ * **لا أحرف بدلية (`module.*`).** الوثيقة تكتب `pharmacy.*` اختصاراً لمجموعة
+ * صلاحيات، لكنها في الكود ثلاث صلاحيات صريحة. قبول النجمة هنا يعني نوعاً يسمح
+ * بقيمة لا يفهمها `can()` في الخادم — فتُمنح صلاحية لا تعمل، وهذا أسوأ من الرفض.
  */
 export const permission = z
   .string()
-  .regex(
-    /^[a-z_]+\.[a-z_]+(\*|)(:\d+(\.\d+)?)?$/,
-    'صيغة الصلاحية: module.action أو module.action:limit'
-  )
+  .regex(/^[a-z_]+\.[a-z_]+(:\d+(\.\d+)?)?$/, 'صيغة الصلاحية: module.action أو module.action:limit')
 export type Permission = z.infer<typeof permission>
 
 export const loginRequest = z.object({

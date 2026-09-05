@@ -3,6 +3,7 @@ import { resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { describe, expect, it } from 'vitest'
 import { PERMISSIONS, ROLE_PERMISSIONS, SYSTEM_ROLES } from '../seed/permissions.js'
+import type { PermissionValue } from '../seed/permissions.js'
 
 /**
  * حارس التطابق بين مصفوفة `docs/01-project-and-permissions.md §6` وبين الكود.
@@ -129,7 +130,7 @@ describe('مصفوفة الصلاحيات — الوثيقة هي المصدر',
 })
 
 describe('الأزواج التراكمية (01 §6 — الصلاحيات تراكمية لا استثنائية)', () => {
-  const pairs: [narrow: string, broad: string][] = [
+  const pairs: [narrow: PermissionValue, broad: PermissionValue][] = [
     [PERMISSIONS.SUPPLIERS_VIEW, PERMISSIONS.SUPPLIERS_MANAGE],
     [PERMISSIONS.CUSTOMERS_CREATE, PERMISSIONS.CUSTOMERS_MANAGE],
     [PERMISSIONS.USERS_MANAGE, PERMISSIONS.USERS_MANAGE_OWNER],

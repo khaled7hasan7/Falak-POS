@@ -9,8 +9,13 @@
  */
 import type { Config } from 'tailwindcss'
 
+/** مقياس النوع: كل مفتاح زوج [حجم, ارتفاع سطر] كما في docs/03 §3 */
+type FontSizeScale = Record<string, [fontSize: string, lineHeight: string]>
+
 const preset = {
-  darkMode: ['selector', '[data-theme="dark"]'],
+  // التثبيت كـ tuple مقصود: تايلوند يريد ['selector', string] لا string[]،
+  // والاستدلال يوسّعه إلى string[] فيفشل عند استهلاكه في presets
+  darkMode: ['selector', '[data-theme="dark"]'] as ['selector', string],
   theme: {
     extend: {
       colors: {
@@ -44,6 +49,8 @@ const preset = {
         info: { bg: 'var(--info-bg)', fg: 'var(--info-fg)' },
       },
       fontFamily: { sans: ['var(--font-ui)'], num: ['var(--font-num)'] },
+      // الأزواج [حجم, ارتفاع سطر] tuples في نوع تايلوند، والاستدلال يوسّعها إلى
+      // string[]؛ `satisfies` يفرض شكل الزوج بلا أن يجعله readonly (docs/03 §14)
       fontSize: {
         display: ['40px', '1.15'],
         h1: ['26px', '1.3'],
@@ -55,7 +62,7 @@ const preset = {
         label: ['11px', '1'],
         'num-xl': ['44px', '1.1'],
         'num-lg': ['26px', '1.2'],
-      },
+      } satisfies FontSizeScale,
       borderRadius: { xs: '6px', sm: '8px', DEFAULT: '10px', lg: '14px', pill: '999px' },
       boxShadow: { 1: 'var(--shadow-1)', 2: 'var(--shadow-2)', blue: 'var(--shadow-blue)' },
       spacing: {
