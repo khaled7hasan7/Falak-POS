@@ -1,0 +1,33 @@
+{
+  "name": "falak-pos",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Falak POS — نظام نقاط بيع عربي يعمل بدون إنترنت",
+  "packageManager": "pnpm@10.34.5",
+  "engines": {
+    "node": ">=22.11.0"
+  },
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "eslint .",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "db:migrate": "pnpm --filter @falak/db migrate",
+    "db:seed": "pnpm --filter @falak/db seed",
+    "db:reset": "pnpm --filter @falak/db reset",
+    "fonts:fetch": "node tools/fetch-fonts.mjs"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.0",
+    "@types/node": "^24.10.1",
+    "eslint": "^9.39.0",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.6.2",
+    "turbo": "^2.5.9",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.4"
+  }
+}

@@ -1,0 +1,65 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # الملف 02: المحرك PostgreSQL 16
+  TEST_DATABASE_URL: postgres://falak:falak_ci@localhost:5432/falak_pos_test
+  DATABASE_URL: postgres://falak:falak_ci@localhost:5432/falak_pos
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: falak
+          POSTGRES_PASSWORD: falak_ci
+          POSTGRES_DB: falak_pos
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U falak"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 10
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - name: تثبيت التبعيات
+        run: pnpm install --frozen-lockfile
+
+      - name: تنسيق
+        run: pnpm format:check
+
+      - name: فحص ESLint
+        run: pnpm lint
+
+      - name: فحص الأنواع
+        run: pnpm typecheck
+
+      - name: البناء
+        run: pnpm build
+
+      - name: الترحيلات
+        run: pnpm db:migrate
+
+      - name: الاختبارات
+        run: pnpm test

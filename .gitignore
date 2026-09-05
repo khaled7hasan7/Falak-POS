@@ -1,0 +1,29 @@
+# التبعيات والبناء
+node_modules/
+dist/
+build/
+.turbo/
+coverage/
+*.tsbuildinfo
+
+# البيئة والأسرار
+.env
+.env.*
+!.env.example
+
+# محلي
+*.log
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# نواتج مؤقتة
+/tmp/
+*.local
+playwright-report/
+test-results/
+
+# نسخ احتياطية محلية للقاعدة
+*.dump
