@@ -10,8 +10,8 @@
  * 1. **الحدود الرقمية** تُلحق بالصلاحية بنقطتين: `pos.discount_line:10`.
  * 2. **الصلاحيات الإضافية (additive):** الصلاحية الأضيق نصّ مستقل، والدور الذي
  *    يملك الأوسع يُمنح الأضيق أيضاً، فيبقى فحص الخادم `has(perm)` بلا منطق استنتاج.
- * 3. **الخلايا ذات الملاحظة بين قوسين** في الجدول تُترجم إلى صلاحية أضيق مستقلة
- *    (موثّقة أدناه بتعليق `اجتهاد:`)، لا إلى استثناء مخبّأ في الكود.
+ * 3. **الصلاحيات تراكمية لا استثنائية:** الأضيق صفّ مستقل في المصفوفة نفسها،
+ *    وصاحب الأوسع يملك الاثنتين. لا استثناء مخبّأ في الكود ولا ملاحظة بين قوسين.
  */
 
 /** حد خصم السطر للكاشير بلا موافقة مدير (%) */
@@ -80,13 +80,13 @@ export const PERMISSIONS = {
   PURCHASES_RECEIVE: 'purchases.receive',
   PURCHASES_RETURN: 'purchases.return',
   PURCHASES_PAY: 'purchases.pay',
-  /** اجتهاد: خلية أمين المخزن «✓ (عرض)» في صف `suppliers.manage` */
+  /** عرض الموردين وأرصدتهم بلا تعديل — صف مستقل في المصفوفة (01 §6) */
   SUPPLIERS_VIEW: 'suppliers.view',
   SUPPLIERS_MANAGE: 'suppliers.manage',
 
   // --- العملاء ---
   CUSTOMERS_VIEW: 'customers.view',
-  /** اجتهاد: خلية الكاشير «✓ (إضافة فقط)» في صف `customers.manage` */
+  /** إضافة عميل جديد فقط، بلا تعديل القائم — صف مستقل في المصفوفة (01 §6) */
   CUSTOMERS_CREATE: 'customers.create',
   CUSTOMERS_MANAGE: 'customers.manage',
   CUSTOMERS_SET_CREDIT_LIMIT: 'customers.set_credit_limit',
@@ -111,7 +111,7 @@ export const PERMISSIONS = {
 
   // --- المستخدمون والإعدادات ---
   USERS_MANAGE: 'users.manage',
-  /** اجتهاد: خلية المدير «✓ (لا يعدّل owner)» — المالك وحده يملك هذه */
+  /** تعديل أو حذف مستخدم بدور المالك — المالك وحده (01 §6) */
   USERS_MANAGE_OWNER: 'users.manage_owner',
   SETTINGS_GENERAL: 'settings.general',
   SETTINGS_MODULES: 'settings.modules',
@@ -122,7 +122,7 @@ export const PERMISSIONS = {
 
   // --- السجل واللوحة ---
   AUDIT_VIEW: 'audit.view',
-  /** اجتهاد: خلية المدير «✓ (فرعه)» — من لا يملك هذه يرى سجل فرعه فقط */
+  /** سجل كل الفروع؛ من لا يملكها يرى سجل فرعه فقط (01 §6) */
   AUDIT_VIEW_ALL_BRANCHES: 'audit.view_all_branches',
   MOBILE_DASHBOARD: 'mobile.dashboard',
 } as const
